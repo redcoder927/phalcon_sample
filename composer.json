@@ -1,0 +1,15 @@
+{
+  "autoload": {
+    "PSR-4": {
+        "App\\": "app"
+    }
+  },
+  "require": {
+    "jaggedsoft/php-binance-api": "^0.5.24"
+  },
+  "require-dev": {
+    "phalcon/ide-stubs": "^4.0",
+    "phalcon/migrations": "^2.1",
+    "symfony/var-dumper": "^5.1"
+  }
+}

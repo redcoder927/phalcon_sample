@@ -1,0 +1,69 @@
+<h1>Register</h1>
+
+<form method="post">
+    <p>
+        <label for="#username">
+            username
+        </label>
+        <?php echo $form->render('username'); ?>
+    </p>
+
+    <p>
+        <label for="#email">
+            email
+        </label>
+        <?php echo $form->render('email'); ?>
+    </p>
+
+    <p>
+        <label for="#password">
+            password
+        </label>
+        <?php echo $form->render('password'); ?>
+    </p>
+
+    <p>
+        <label for="#repeat-password">
+            repeat password
+        </label>
+        <?php echo $form->render('repeat-password'); ?>
+    </p>
+
+    <p>
+        <label for="#first-name">
+            first name
+        </label>
+        <?php echo $form->render('first-name'); ?>
+    </p>
+
+
+    <p>
+        <label for="#last-name">
+            last name
+        </label>
+        <?php echo $form->render('last-name'); ?>
+    </p>
+
+
+    <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>">
+
+
+    <p><?php echo $form->render('register-btn'); ?></p>
+
+    <?php
+    if (!$form->isValid($_POST) && $this->request->getPost('register-btn')) {
+        $messages = $form->getMessages();
+
+        foreach ($messages as $message) {
+            echo $message, '<br>';
+        }
+    }  else {
+        foreach ($errors as $error) {
+            echo $error, '<br>';
+        }
+    }
+
+    ?>
+
+</form>
+

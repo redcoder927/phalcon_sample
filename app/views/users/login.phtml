@@ -1,0 +1,38 @@
+<h1>Login</h1>
+
+<form method="post">
+    <p>
+        <label for="username">Username</label>
+        <?php echo $form->render('username') ?>
+    </p>
+    <p>
+        <label for="password">password</label>
+        <?php echo $form->render('password') ?>
+    </p>
+
+    <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>">
+    <?php ?>
+
+    <p>
+        <?php echo $form->render('login-btn') ?>
+    </p>
+</form>
+
+
+
+<?php
+
+if (!$form->isValid($_POST) && $this->request->getPost('login-btn')) {
+    $messages = $form->getMessages();
+
+    foreach ($messages as $message) {
+        echo $message, '<br>';
+    }
+
+} else {
+    foreach ($errors as $error) {
+        echo $error, '<br>';
+    }
+}
+
+?>
